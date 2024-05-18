@@ -12,7 +12,7 @@ export class CategoriaService {
 
   
   controlChanges = new Subject<Data<any>>();
-  private url = `${environment.API_CATEGORIA}`;
+  private url = `${environment.API}`;
 
   private httpOptions = {
     headers: new HttpHeaders({
