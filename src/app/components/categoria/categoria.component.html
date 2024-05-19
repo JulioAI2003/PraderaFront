@@ -1,47 +1,40 @@
 <div class="container">
-    <div class="row">
-        <div class="col-4">
-            <app-menu></app-menu>
-        </div>
-        <div class="col-6">
-            <div class="container">
-                <div class="pdntit">
-                    <h1><b>Lista de Categorias</b></h1>
-                </div>
-                <div class="p-2" style="text-align: start;">
-                    <button type="submit" class="btn btn-success">Agregar</button>
-                </div>
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-
-
-
-
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-4">
+      <app-menu></app-menu>
     </div>
+    <div class="col-6">
+      <div class="container">
+        <div class="pdntit">
+          <h1><b>Lista de Categorias</b></h1>
+        </div>
+        <div class="p-2" style="text-align: start;">
+          <button type="submit" class="btn btn-success">Agregar</button>
+        </div>
+        <mat-card>
+          <div class="container-table">
+            <mat-table [dataSource]="datasource">
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+              <ng-container matColumnDef="categoria">
+                <mat-header-cell *matHeaderCellDef>Categoria</mat-header-cell>
+                <mat-cell *matCellDef="let row" fxLayoutAlign="center center">
+                  {{row.nombre}}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="acciones">
+                <mat-header-cell *matHeaderCellDef fxLayoutAlign="center center"> Acciones
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element,let i=index" fxLayoutAlign="center center">
+                  <button mat-icon-button matTooltip="Almacenes">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </mat-cell>
+              </ng-container>
+            </mat-table>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </div>

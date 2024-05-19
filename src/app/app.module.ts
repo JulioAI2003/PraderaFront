@@ -8,7 +8,8 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,8 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule, 
     AppRoutingModule,
     MatTableModule,
+    MatCardModule,
+    MatIconModule,
   ],
   providers: [
     ],

@@ -26,9 +26,9 @@ export class CategoriaService {
 
   public findAllbyFiltersByCategoria(filters: any, paginator: Paginador): Observable<any> {
     let params = new HttpParams()
-    if (filters.nombre !=-1) params = params.append('nombre', filters.categoria)
+    // if (filters.nombre !=-1) params = params.append('nombre', filters.nombre)
     .set('page', paginator.page.toString())
     .set('size', paginator.size.toString())
-   return this.http.get(`${this.url}regla/bandeja?${params}`, this.httpOptions);
+   return this.http.get(`${this.url}categoria/bandeja?${params}`, this.httpOptions);
   }
 }
