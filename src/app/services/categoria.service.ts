@@ -31,4 +31,9 @@ export class CategoriaService {
     .set('size', paginator.size.toString())
    return this.http.get(`${this.url}categoria/bandeja?${params}`, this.httpOptions);
   }
+
+  save(datos: any): Observable<any> {
+    return this.http.post(`${this.url}categoria/guardar`, datos, this.httpOptions);
+  }
+
 }

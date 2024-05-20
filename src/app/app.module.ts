@@ -10,6 +10,21 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { DialogCategoriaComponent } from './components/categoria/dialog-categoria/dialog-categoria.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogSuccessComponent } from './components/alert/dialog/dialog-success/dialog-success.component';
+import { DialogConfirmComponent } from './components/alert/dialog/dialog-confirm/dialog-confirm.component';
+import { DialogErrorComponent } from './components/alert/dialog/dialog-error/dialog-error.component';
+import { DialogWarningComponent } from './components/alert/dialog/dialog-warning/dialog-warning.component';
+import { DialogLoadingComponent } from './components/alert/dialog/dialog-loading/dialog-loading.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +32,28 @@ import { MatIconModule } from '@angular/material/icon';
     CategoriaComponent,
     ProductoComponent,
     MenuComponent,
+    // DialogCategoriaComponent,
+    DialogSuccessComponent,
+    DialogLoadingComponent,
+    DialogConfirmComponent,
+    // DialogErrorComponent,
+    DialogWarningComponent,
   ],
   imports: [
+    FormsModule,
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
     BrowserModule,
+    MatDialogModule,
     HttpClientModule, 
     AppRoutingModule,
     MatTableModule,
     MatCardModule,
     MatIconModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [
     ],
