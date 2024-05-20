@@ -32,11 +32,11 @@ import { MatInputModule } from '@angular/material/input';
     CategoriaComponent,
     ProductoComponent,
     MenuComponent,
-    // DialogCategoriaComponent,
+    DialogCategoriaComponent, //problema en el mat-label
     DialogSuccessComponent,
     DialogLoadingComponent,
     DialogConfirmComponent,
-    // DialogErrorComponent,
+    DialogErrorComponent,
     DialogWarningComponent,
   ],
   imports: [

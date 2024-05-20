@@ -38,11 +38,11 @@ export class CategoriaComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAllRegisterByFilters();
-    // this.buscar();
+    this.buscar();
   }
   buscar() {
-    // this.search.emit();
-    // this.findAllRegisterByFilters();
+    this.findAllRegisterByFilters();
+    this.search.emit();
   }
 
   findAllRegisterByFilters(){
@@ -54,11 +54,9 @@ export class CategoriaComponent implements OnInit {
         .subscribe(
           (response) => {
             let datasource = response.content
-            let totalElements = <number>response.totalElements;
             this.datasource = new MatTableDataSource(datasource);
             this.datasource.paginator = this.paginator;
             this.paginador.totalElements = response.totalElements;
-            // this.categoriaService.controlChanges.next(data); //buscar
             this.datasource.sort = this.sort;
             resolve(response);
           }
@@ -88,31 +86,85 @@ export class CategoriaComponent implements OnInit {
         proceso: proceso,
       },
     });
-    // dialogRef.afterClosed().subscribe((o) => {
-    //   if (o) {
-    //   let data:any={
-    //     nombre:o.data.nombre
-    //   }
-    //   this.alertService.loadingDialogShow('Actualizando Caja...');
-    //   this.categoriaService.save(data).subscribe(
-    //     (response) => {
-    //       this.alertService.loadingDialogClose();
-    //       this.alertService.openSuccessDialog("Información","Caja Registrada correctamente.","Aceptar",(boton:boolean)=>{})
-    //       this.limpiar();
-    //     },
-    //     (error) => {
-    //       this.alertService.loadingDialogClose();
-    //       this.alertService.openSuccessDialog("Información","Caja Registrada correctamente.","Aceptar",(boton:boolean)=>{})
-    //       this.limpiar();
-    //     }
-    //   );
-    // }
-    // });
+    dialogRef.afterClosed().subscribe((o) => {
+      if (o) {
+      let data:any={
+        nombre:o.data.nombre
+      }
+      this.alertService.loadingDialogShow('Registrando Categoria...');
+      this.categoriaService.save(data).subscribe(
+        (response) => {
+          this.alertService.loadingDialogClose();
+          this.alertService.openSuccessDialog("Información","Categoria Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.limpiar();
+        },
+        (error) => {
+          this.alertService.loadingDialogClose();
+          this.alertService.openSuccessDialog("Información","Categoria Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.limpiar();
+        }
+      );
+    }
+    });
 }
 
 limpiar() {
-  this.form.get('nombre')?.setValue('');
+  // this.form.get('nombre')?.setValue('');
   this.buscar();
 }
 
+update(categoria: any) {
+  const dialogRef = this.dialog.open(DialogCategoriaComponent, {
+    width: '400px',
+    data: {
+      title: 'Actualizar Categoria',
+      boton: 'Actualizar',
+      categoria: categoria,
+    },
+  });
+  dialogRef.afterClosed().subscribe((o) => {
+    var estado;
+    if (o) {
+      if (o.data.activo === 'Activo') {
+        estado = 1;
+      } else {
+        estado = 0;
+      }
+      categoria.nombre = o.data.nombre;
+      this.alertService.loadingDialogShow('Actualizando Categoria...');
+      this.categoriaService.save(categoria).subscribe(
+        (response) => {
+          this.alertService.loadingDialogClose();
+          this.alertService.openSuccessDialog("Información","Categoria Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.limpiar();
+        },
+        (error) => {
+          this.alertService.loadingDialogClose();
+          this.alertService.openSuccessDialog("Información","Categoria Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.limpiar();
+        }
+      );
+    }
+  });
+}
+
+
+async delete(index: number) {
+  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar esta Categoria?');
+  if (answer) {
+    this.categoriaService.delete(index).subscribe(
+      response => {
+        if (response === true) {
+          this.datasource.data.splice(index, 1);
+          this.datasource = new MatTableDataSource(this.datasource.data)
+          alert('Se eliminó exitosamente');
+        }
+        this.limpiar();
+      },
+      error => {
+        alert('No se pudo eliminar');
+      }
+    );
+  }
+}
 }

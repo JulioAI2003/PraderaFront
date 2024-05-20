@@ -32,8 +32,11 @@
                 <mat-header-cell *matHeaderCellDef fxLayoutAlign="center center"> Acciones
                 </mat-header-cell>
                 <mat-cell *matCellDef="let element,let i=index" fxLayoutAlign="center center">
-                  <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-                    <mat-icon>menu</mat-icon>
+                  <button type="button" class="btn btn-primary icon pr-2" (click)="update(element)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button type="button" class="btn btn-danger" (click)="delete(element.id)">
+                    <mat-icon>delete</mat-icon>
                   </button>
                 </mat-cell>
               </ng-container>
@@ -42,5 +45,5 @@
         </mat-card>
       </div>
     </div>
-</div>
+  </div>
 </div>

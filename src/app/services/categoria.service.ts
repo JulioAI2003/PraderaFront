@@ -36,4 +36,8 @@ export class CategoriaService {
     return this.http.post(`${this.url}categoria/guardar`, datos, this.httpOptions);
   }
 
+  delete(act_id: any): Observable<any> {
+    return this.http.delete(`${this.url}categoria/eliminar/${act_id}`, this.httpOptions);
+  }
+
 }
