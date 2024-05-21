@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  view() {
+  login() {
     this.router.navigate(['/categoria',{}])
   }
 }
