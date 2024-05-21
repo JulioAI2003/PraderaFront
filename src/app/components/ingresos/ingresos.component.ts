@@ -6,26 +6,27 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Paginador } from 'src/app/interfaces/paginador';
 import { AlertService } from 'src/app/services/alert.service';
+import { IngresosService } from 'src/app/services/ingresos.service';
 import { ProductoService } from 'src/app/services/producto.service';
-import { DialogProductoComponent } from './dialog-producto/dialog-producto.component';
+import { DialogIngresosComponent } from './dialog-ingresos/dialog-ingresos.component';
 
 @Component({
-  selector: 'app-producto',
-  templateUrl: './producto.component.html',
-  styleUrls: ['./producto.component.css']
+  selector: 'app-ingresos',
+  templateUrl: './ingresos.component.html',
+  styleUrls: ['./ingresos.component.css']
 })
-export class ProductoComponent implements OnInit {
+export class IngresosComponent implements OnInit {
 
   @Output() search = new EventEmitter();
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   public datasource!: MatTableDataSource<any>;
-  public displayedColumns: string[] = ['#','nombre','categoria','presentacion','acciones'];
+  public displayedColumns: string[] = ['#','ingresos','cantidad','fecha','acciones'];
   form!: FormGroup;
   public paginador!: Paginador;
   constructor(
     public dialog: MatDialog,
-    private productoservice: ProductoService,
+    private ingresosservice: IngresosService,
     private alertService: AlertService
   ) {
     this.paginador = new Paginador();
@@ -44,8 +45,8 @@ export class ProductoComponent implements OnInit {
     return new Promise((resolve, reject) => {
       // var data = this.form.value;
       var data = "";
-      this.productoservice
-        .findAllbyFiltersByProducto(data, this.paginador)
+      this.ingresosservice
+        .findAllbyFiltersByIngresos(data, this.paginador)
         .subscribe(
           (response) => {
             let datasource = response.content
@@ -72,32 +73,30 @@ export class ProductoComponent implements OnInit {
   }
 
   createAct() {
-    let producto = { nombre: '',presentacion:'',categoria:''};
-    const dialogRef = this.dialog.open(DialogProductoComponent, {
+    let ingreso = { nombre: '' };
+    const dialogRef = this.dialog.open(DialogIngresosComponent, {
       width: '400px',
       data: {
-        title: 'Registrar Producto',
+        title: 'Registrar Ingreso',
         boton: 'Registrar',
-        producto: producto,
+        ingreso: ingreso,
       },
     });
     dialogRef.afterClosed().subscribe((o) => {
       if (o) {
       let data:any={
-        nombre:o.data.nombre,
-        presentacion:o.data.presentacion,
-        categoriaId:o.data.categoria
+        nombre:o.data.nombre
       }
-      this.alertService.loadingDialogShow('Registrando Producto...');
-      this.productoservice.save(data).subscribe(
+      this.alertService.loadingDialogShow('Registrando Ingreso...');
+      this.ingresosservice.save(data).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Producto Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Ingreso Registrada correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Producto Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Ingreso Registrada correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         }
       );
@@ -110,13 +109,13 @@ limpiar() {
   this.buscar();
 }
 
-update(producto: any) {
-  const dialogRef = this.dialog.open(DialogProductoComponent, {
+update(ingreso: any) {
+  const dialogRef = this.dialog.open(DialogIngresosComponent, {
     width: '400px',
     data: {
-      title: 'Actualizar Producto',
+      title: 'Actualizar Ingreso',
       boton: 'Actualizar',
-      producto: producto,
+      ingreso: ingreso,
     },
   });
   dialogRef.afterClosed().subscribe((o) => {
@@ -127,19 +126,17 @@ update(producto: any) {
       } else {
         estado = 0;
       }
-      producto.nombre = o.data.nombre;
-      producto.presentacion = o.data.presentacion,
-      producto.categoriaId = o.data.categoria
-      this.alertService.loadingDialogShow('Actualizando Producto...');
-      this.productoservice.save(producto).subscribe(
+      ingreso.nombre = o.data.nombre;
+      this.alertService.loadingDialogShow('Actualizando Ingreso...');
+      this.ingresosservice.save(ingreso).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Producto Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Ingreso Registrada correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Categoria Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Ingreso Registrada correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         }
       );
@@ -149,9 +146,9 @@ update(producto: any) {
 
 
 async delete(index: number) {
-  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar esta Producto?');
+  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar este Ingreso?');
   if (answer) {
-    this.productoservice.delete(index).subscribe(
+    this.ingresosservice.delete(index).subscribe(
       response => {
         if (response === true) {
           this.datasource.data.splice(index, 1);

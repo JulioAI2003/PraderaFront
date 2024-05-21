@@ -15,7 +15,25 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   exit() {
     this.router.navigate(['/login',{}])
+  }
+  
+  categoria() {
+    this.router.navigate(['/categoria',{}])
+  }
+
+  producto() {
+    this.router.navigate(['/producto',{}])
+  }
+  ingresos() {
+    this.router.navigate(['/ingresos',{}])
+  }
+  salidas() {
+    this.router.navigate(['/salidas',{}])
+  }
+  kardex() {
+    this.router.navigate(['/kardex',{}])
   }
 }

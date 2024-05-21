@@ -4,18 +4,19 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DigitValidator } from 'src/app/others/digitValidator';
 
 @Component({
-  selector: 'app-dialog-categoria',
-  templateUrl: './dialog-categoria.component.html',
-  styleUrls: ['./dialog-categoria.component.css']
+  selector: 'app-dialog-ingresos',
+  templateUrl: './dialog-ingresos.component.html',
+  styleUrls: ['./dialog-ingresos.component.css']
 })
-export class DialogCategoriaComponent implements OnInit {
+export class DialogIngresosComponent implements OnInit {
+
 
   categoriaform!: FormGroup;
   public digitValidator = new DigitValidator();
   valido:any = true
   constructor(
     private formBuilder: FormBuilder,
-    public dialogRef: MatDialogRef<DialogCategoriaComponent>,
+    public dialogRef: MatDialogRef<DialogIngresosComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
 

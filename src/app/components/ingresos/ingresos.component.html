@@ -6,7 +6,7 @@
       <div class="col-9">
         <div class="container">
           <div class="pdntit">
-            <h1><b>Lista de Productos</b></h1>
+            <h1><b>Lista de Ingresos</b></h1>
           </div>
           <div class="p-2" style="text-align: start;">
             <button mat-button type="submit" class="btn btn-success" (click)="createAct()">Agregar</button>
@@ -22,22 +22,22 @@
                     {{row.id}}
                   </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="nombre">
-                  <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+                <ng-container matColumnDef="ingresos">
+                  <mat-header-cell *matHeaderCellDef>Ingresos</mat-header-cell>
                   <mat-cell *matCellDef="let row" fxLayoutAlign="center center">
-                    {{row.nombre}}
+                    {{row.productoNombre}}
                   </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="categoria">
-                    <mat-header-cell *matHeaderCellDef>Categoria</mat-header-cell>
+                <ng-container matColumnDef="cantidad">
+                    <mat-header-cell *matHeaderCellDef>Cantidad</mat-header-cell>
                     <mat-cell *matCellDef="let row" fxLayoutAlign="center center">
-                      {{row.categoriaNombre}}
+                      {{row.cantidad}}
                     </mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="presentacion">
-                    <mat-header-cell *matHeaderCellDef>Presentacion</mat-header-cell>
+                  <ng-container matColumnDef="fecha">
+                    <mat-header-cell *matHeaderCellDef>Fecha</mat-header-cell>
                     <mat-cell *matCellDef= "let row" fxLayoutAlign="center center">
-                      {{row.presentacion}}
+                      {{row.fecha}}
                     </mat-cell>
                   </ng-container>
                 <ng-container matColumnDef="acciones">

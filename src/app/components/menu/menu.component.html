@@ -6,19 +6,19 @@
     <div role="tabpanel" class="mb-5">
         <!-- List group -->
         <div class="list-group" id="myList" role="tablist">
-            <a class="actv list-group-item list-group-item-action active slcn" data-bs-toggle="list" href="#home"
+            <a class="actv list-group-item list-group-item-action active slcn" data-bs-toggle="list" (click)="categoria()"
                 role="tab"><i class="fa-solid fa-list "></i>
                 <button type="button" class="btn pb-3">Categorias</button><i class="fa-solid fa-caret-right"></i></a>
-            <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" href="#profile"
+            <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="producto()"
                 role="tab"><i class="fa-solid fa-cube"></i>
                 <button type="button" class="btn pb-3">Productos</button><i class="fa-solid fa-caret-right"></i></a>
-            <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" href="#messages"
+            <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="ingresos()"
                 role="tab"><i class="fa-solid fa-arrow-right-to-bracket inv"></i>
                 <button type="button" class="btn pb-3">Ingresos</button><i class="fa-solid fa-caret-right"></i></a>
-            <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" href="#settings"
+            <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="salidas()"
                 role="tab"><i class="fa-solid fa-arrow-right-to-bracket"></i>
                 <button type="button" class="btn pb-3">Salidas</button><i class="fa-solid fa-caret-right"></i></a>
-            <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" href="#settings"
+            <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="kardex()"
                 role="tab"><i class="fa-solid fa-clipboard-list"></i>
                 <button type="button" class="btn pb-3">Kardex</button><i class="fa-solid fa-caret-right"></i></a>
         </div>

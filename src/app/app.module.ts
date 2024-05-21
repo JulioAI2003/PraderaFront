@@ -23,7 +23,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
-
+import { DialogProductoComponent } from './components/producto/dialog-producto/dialog-producto.component';
+import { IngresosComponent } from './components/ingresos/ingresos.component';
+import { DialogIngresosComponent } from './components/ingresos/dialog-ingresos/dialog-ingresos.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { MatInputModule } from '@angular/material/input';
     DialogConfirmComponent,
     DialogErrorComponent,
     DialogWarningComponent,
+    DialogProductoComponent,
+    IngresosComponent,
+    DialogIngresosComponent,
   ],
   imports: [
     FormsModule,
@@ -53,7 +59,8 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [
     ],

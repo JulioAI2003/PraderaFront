@@ -1,7 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { CategoriaInterface } from 'src/app/interfaces/categoria-interface';
 import { DigitValidator } from 'src/app/others/digitValidator';
+import { ProductoService } from 'src/app/services/producto.service';
 import { DialogCategoriaComponent } from '../../categoria/dialog-categoria/dialog-categoria.component';
 
 @Component({
@@ -16,6 +19,8 @@ export class DialogProductoComponent implements OnInit {
   public digitValidator = new DigitValidator();
   valido:any = true
   constructor(
+    
+    private productoservice: ProductoService,
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<DialogCategoriaComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -27,14 +32,23 @@ export class DialogProductoComponent implements OnInit {
   ngOnInit(): void {
     this.init();
     this.showBtnEdit();
+    this.getCategorias();
   }
 
   init() {
     this.categoriaform = this.formBuilder.group({
       nombre: [
-        this.data?.categoria?.nombre,
+        this.data?.producto?.nombre,
         Validators.required,
       ],
+      presentacion: [
+        this.data?.producto?.presentacion,
+        Validators.required,
+      ],
+      categoria: [
+        this.data?.producto?.categoriaId,
+        Validators.required,
+      ], 
     
     });
   }
@@ -56,6 +70,18 @@ export class DialogProductoComponent implements OnInit {
     } else {
       this.categoriaform.disable();
     }
+  }
+
+  categorias: CategoriaInterface[] = [];
+  getCategorias() {
+    this.productoservice.getCategorias().subscribe(
+      (res: any) => {
+        this.categorias = res
+      },
+      error => {
+        alert('Error')
+      }
+    )
   }
 
 }
