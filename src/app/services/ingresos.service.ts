@@ -41,4 +41,9 @@ export class IngresosService {
     return this.http.delete(`${this.url}ingresos/eliminar/${act_id}`, this.httpOptions);
   }
 
+  getProductos() {
+    return this.http.get(`${this.url}producto/listar`)
+  }
+
+
 }

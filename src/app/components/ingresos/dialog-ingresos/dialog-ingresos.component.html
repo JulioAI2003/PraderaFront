@@ -1,10 +1,19 @@
 <h1 mat-dialog-title>{{data.title}}</h1>
 <div mat-dialog-content>
-    <form #form="ngForm" [formGroup]="categoriaform">
+    <form #form="ngForm" [formGroup]="ingresosform">
         <div fxLayout="Column" fxFlex="100%">
+            <mat-form-field appearance="fill" fxFlex="100%" >
+                <mat-label>Nombre</mat-label>
+                <mat-select placeholder="" formControlName="producto">
+                    <mat-option  [value]="-1">--Ninguno--</mat-option>
+                      <mat-option  *ngFor="let prod of productos" [value]="prod.id">
+                          {{prod?.nombre}}
+                      </mat-option>
+                  </mat-select>
+            </mat-form-field>
             <mat-form-field fxFlex="100%">
-                <mat-label >Nombre</mat-label>                           
-                <input matInput  formControlName="nombre">       
+                <mat-label >Cantidad</mat-label>                           
+                <input matInput  formControlName="cantidad">       
             </mat-form-field>
         </div>
     </form>

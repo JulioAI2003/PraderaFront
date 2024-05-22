@@ -85,7 +85,8 @@ export class IngresosComponent implements OnInit {
     dialogRef.afterClosed().subscribe((o) => {
       if (o) {
       let data:any={
-        nombre:o.data.nombre
+        productoId:o.data.producto,
+        cantidad:o.data.cantidad,
       }
       this.alertService.loadingDialogShow('Registrando Ingreso...');
       this.ingresosservice.save(data).subscribe(
@@ -126,7 +127,10 @@ update(ingreso: any) {
       } else {
         estado = 0;
       }
-      ingreso.nombre = o.data.nombre;
+      ingreso.productoId = o.data.producto;
+      ingreso.cantidad = o.data.cantidad;
+      ingreso.fecha=null;
+      console.log(ingreso)
       this.alertService.loadingDialogShow('Actualizando Ingreso...');
       this.ingresosservice.save(ingreso).subscribe(
         (response) => {
