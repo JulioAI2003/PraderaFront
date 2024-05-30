@@ -27,6 +27,8 @@ import { DialogProductoComponent } from './components/producto/dialog-producto/d
 import { IngresosComponent } from './components/ingresos/ingresos.component';
 import { DialogIngresosComponent } from './components/ingresos/dialog-ingresos/dialog-ingresos.component';
 import { MatSelectModule } from '@angular/material/select';
+import { SalidaComponent } from './components/salida/salida.component';
+import { DialogSalidasComponent } from './components/salida/dialog-salidas/dialog-salidas.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { MatSelectModule } from '@angular/material/select';
     DialogProductoComponent,
     IngresosComponent,
     DialogIngresosComponent,
+    SalidaComponent,
+    DialogSalidasComponent,
   ],
   imports: [
     FormsModule,

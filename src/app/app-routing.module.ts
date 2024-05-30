@@ -4,6 +4,7 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
 import { IngresosComponent } from './components/ingresos/ingresos.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { SalidaComponent } from './components/salida/salida.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'ingresos',
     component: IngresosComponent,
+  },
+  {
+    path: 'salidas',
+    component: SalidaComponent,
   },
 ];
 @NgModule({
