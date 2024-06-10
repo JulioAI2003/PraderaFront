@@ -1,17 +1,22 @@
 <div class="container-fluid">
     <div class="my-3 text-center">
-        <img src="/assets/logo.png"
-            class="card-img-top logo" alt="...">
+        <img src="/assets/logo.png" class="card-img-top logo" alt="...">
     </div>
     <div role="tabpanel" class="mb-1">
         <!-- List group -->
         <div class="list-group px-3" id="myList" role="tablist">
-            <a class="actv list-group-item list-group-item-action active slcn" data-bs-toggle="list" (click)="categoria()"
+            <a class="actv list-group-item list-group-item-action active slcn" data-bs-toggle="list"(click)="categoria()" 
                 role="tab"><i class="fa-solid fa-list "></i>
                 <button type="button" class="btn">Categorias</button><i class="fa-solid fa-caret-right"></i></a>
             <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="producto()"
                 role="tab"><i class="fa-solid fa-cube"></i>
                 <button type="button" class="btn">Productos</button><i class="fa-solid fa-caret-right"></i></a>
+            <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="proveedor()"
+                role="tab"><i class="fa-solid fa-handshake"></i>
+                <button type="button" class="btn">Proveedores</button><i class="fa-solid fa-caret-right"></i></a>
+            <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="trabajador()"
+                role="tab"><i class="fa-solid fa-users"></i>
+                <button type="button" class="btn">Trabajadores</button><i class="fa-solid fa-caret-right"></i></a>
             <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="ingresos()"
                 role="tab"><i class="fa-solid fa-arrow-right-to-bracket inv"></i>
                 <button type="button" class="btn">Ingresos</button><i class="fa-solid fa-caret-right"></i></a>

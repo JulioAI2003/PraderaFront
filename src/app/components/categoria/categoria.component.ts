@@ -100,7 +100,7 @@ export class CategoriaComponent implements OnInit {
         },
         (error) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Categoria Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.warningDialog("Ocurrió un error inesperado.")
           this.limpiar();
         }
       );
@@ -135,12 +135,12 @@ update(categoria: any) {
       this.categoriaService.save(categoria).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Categoria Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Categoría actualizada correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Categoria Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.warningDialog("Ocurrió un error inesperado.");
           this.limpiar();
         }
       );

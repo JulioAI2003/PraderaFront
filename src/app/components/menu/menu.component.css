@@ -3,11 +3,6 @@
  color: rgb(13, 8, 8);
  transition-duration: 0.5s;
 }
-
-.slcn{
-    /* width: 50%;
-    height: 50%; */
-   }
 .inv{
     transform: scaleX(-1);
 }
@@ -15,7 +10,6 @@
 .logo{
     width: 70%;
 }
-
 .actv.active{
     background-color: rgb(215, 211, 211);
     color: rgb(13, 8, 8);

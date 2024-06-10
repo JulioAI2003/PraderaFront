@@ -27,6 +27,15 @@ export class MenuComponent implements OnInit {
   producto() {
     this.router.navigate(['/producto',{}])
   }
+
+  proveedor() {
+    this.router.navigate(['/proveedor',{}])
+  }
+
+  trabajador() {
+    this.router.navigate(['/trabajador',{}])
+  }
+
   ingresos() {
     this.router.navigate(['/ingresos',{}])
   }
