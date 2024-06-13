@@ -74,7 +74,8 @@
               "browserTarget": "PraderaFront:build:production"
             },
             "development": {
-              "browserTarget": "PraderaFront:build:development"
+              "browserTarget": "PraderaFront:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

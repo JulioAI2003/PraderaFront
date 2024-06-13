@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,13 +12,14 @@ export class MenuComponent implements OnInit {
 
   constructor(
     private router:Router,
-
+    private loginService: LoginService
   ) { }
 
   ngOnInit(): void {
   }
   
   exit() {
+    this.loginService.logout();
     this.router.navigate(['/login',{}])
   }
   
