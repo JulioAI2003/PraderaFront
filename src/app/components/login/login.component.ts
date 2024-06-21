@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
         if (response.respuesta) {
           this.token = response.token
           this.loginService.login(this.token);
+          localStorage.setItem("rol", response.usuario.roles[0].nombre);
           this.router.navigate(['/categoria', {}])
         } else {
           this.alertService.warningDialog("Usuario o contraseña incorrectos.");

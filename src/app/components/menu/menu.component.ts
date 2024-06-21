@@ -10,6 +10,8 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class MenuComponent implements OnInit {
 
+  rol = localStorage.getItem("rol");
+
   constructor(
     private router:Router,
     private loginService: LoginService
