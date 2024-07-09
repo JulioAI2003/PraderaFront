@@ -20,7 +20,7 @@ export class DialogCategoriaComponent implements OnInit {
   ) {}
 
   mensaje: any;
-  showEdit: Boolean = this.data.showEdit;ñ
+  showEdit: Boolean = this.data.showEdit;
 
   ngOnInit(): void {
     this.init();
