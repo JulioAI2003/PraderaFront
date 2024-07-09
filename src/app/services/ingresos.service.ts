@@ -45,5 +45,8 @@ export class IngresosService {
     return this.http.get(`${this.url}producto/listar`)
   }
 
+  getProveedores() {
+    return this.http.get(`${this.url}proveedor/listar`)
+  }
 
 }

@@ -3,11 +3,20 @@
     <form #form="ngForm" [formGroup]="salidaform">
         <div fxLayout="Column" fxFlex="100%">
             <mat-form-field appearance="fill" fxFlex="100%" >
-                <mat-label>Nombre</mat-label>
+                <mat-label>Producto</mat-label>
                 <mat-select placeholder="" formControlName="producto">
                     <mat-option  [value]="-1">--Ninguno--</mat-option>
                       <mat-option  *ngFor="let prod of productos" [value]="prod.id">
                           {{prod?.nombre}}
+                      </mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex="100%" >
+                <mat-label>Trabajador</mat-label>
+                <mat-select placeholder="" formControlName="trabajador">
+                    <mat-option  [value]="-1">--Ninguno--</mat-option>
+                      <mat-option  *ngFor="let trab of trabajadores" [value]="trab.id">
+                          {{trab.nombreCompleto}}
                       </mat-option>
                   </mat-select>
             </mat-form-field>

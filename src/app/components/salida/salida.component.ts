@@ -20,7 +20,7 @@ export class SalidaComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   public datasource!: MatTableDataSource<any>;
-  public displayedColumns: string[] = ['#','salidas','cantidad','fecha','acciones'];
+  public displayedColumns: string[] = ['#', 'producto', 'cantidad', 'fecha', 'trabajador', 'acciones'];
   form!: FormGroup;
   public paginador!: Paginador;
   constructor(
@@ -72,20 +72,21 @@ export class SalidaComponent implements OnInit {
   }
 
   createAct() {
-    let ingreso = { nombre: '' };
+    let salida = { nombre: '' };
     const dialogRef = this.dialog.open(DialogSalidasComponent, {
       width: '400px',
       data: {
         title: 'Registrar Salida',
         boton: 'Registrar',
-        ingreso: ingreso,
+        salida: salida,
       },
     });
     dialogRef.afterClosed().subscribe((o) => {
       if (o) {
       let data:any={
-        productoId:o.data.producto,
-        cantidad:o.data.cantidad,
+        productoId: o.data.producto,
+        trabajadorId: o.data.trabajador,
+        cantidad: o.data.cantidad,
       }
       this.alertService.loadingDialogShow('Registrando Salida...');
       this.salidaservice.save(data).subscribe(
@@ -109,13 +110,13 @@ limpiar() {
   this.buscar();
 }
 
-update(ingreso: any) {
+update(salida: any) {
   const dialogRef = this.dialog.open(DialogSalidasComponent, {
     width: '400px',
     data: {
       title: 'Actualizar Salida',
       boton: 'Actualizar',
-      ingreso: ingreso,
+      salida: salida,
     },
   });
   dialogRef.afterClosed().subscribe((o) => {
@@ -126,12 +127,13 @@ update(ingreso: any) {
       } else {
         estado = 0;
       }
-      ingreso.productoId = o.data.producto;
-      ingreso.cantidad = o.data.cantidad;
-      ingreso.fecha=null;
-      console.log(ingreso)
+      salida.productoId = o.data.producto;
+      salida.trabajadorId = o.data.trabajador;
+      salida.cantidad = o.data.cantidad;
+      salida.fecha=null;
+      console.log(salida)
       this.alertService.loadingDialogShow('Actualizando Salida...');
-      this.salidaservice.save(ingreso).subscribe(
+      this.salidaservice.save(salida).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
           this.alertService.openSuccessDialog("Información","Salida Registrada correctamente.","Aceptar",(boton:boolean)=>{})

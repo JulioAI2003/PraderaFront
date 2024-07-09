@@ -30,27 +30,37 @@ export class DialogIngresosComponent implements OnInit {
     this.init();
     this.showBtnEdit();
     this.getProductos();
+    this.getProveedores();
   }
 
   init() {
-    console.log(this.data)
     this.ingresosform = this.formBuilder.group({
       producto: [
         this.data?.ingreso?.productoId,
         Validators.required,
       ],
+      proveedor: [
+        this.data?.ingreso?.proveedorId,
+        Validators.required,
+      ],
+      comprobante: [
+        this.data?.ingreso?.comprobante,
+        Validators.required,
+      ],
       cantidad: [
         this.data?.ingreso?.cantidad,
         Validators.required,
-      ], 
-    
+      ],
+      precio: [
+        this.data?.ingreso?.precio,
+        Validators.required,
+      ]
     });
   }
   guardar(){
     this.dialogRef.close(
       {
         data: this.ingresosform.value,
-      
       });
   }
 
@@ -71,6 +81,18 @@ export class DialogIngresosComponent implements OnInit {
     this.ingresosservice.getProductos().subscribe(
       (res: any) => {
         this.productos = res
+      },
+      error => {
+        alert('Error')
+      }
+    )
+  }
+
+  proveedores: CategoriaInterface[] = [];
+  getProveedores() {
+    this.ingresosservice.getProveedores().subscribe(
+      (res: any) => {
+        this.proveedores = res
       },
       error => {
         alert('Error')

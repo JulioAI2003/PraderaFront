@@ -45,4 +45,7 @@ export class SalidaService {
     return this.http.get(`${this.url}producto/listar`)
   }
 
+  getTrabajadores() {
+    return this.http.get(`${this.url}trabajador/listar`)
+  }
 }

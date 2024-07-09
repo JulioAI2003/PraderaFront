@@ -7,7 +7,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Paginador } from 'src/app/interfaces/paginador';
 import { AlertService } from 'src/app/services/alert.service';
 import { IngresosService } from 'src/app/services/ingresos.service';
-import { ProductoService } from 'src/app/services/producto.service';
 import { DialogIngresosComponent } from './dialog-ingresos/dialog-ingresos.component';
 
 @Component({
@@ -21,7 +20,7 @@ export class IngresosComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   public datasource!: MatTableDataSource<any>;
-  public displayedColumns: string[] = ['#','ingresos','cantidad','fecha','acciones'];
+  public displayedColumns: string[] = ['#', 'comprobante', 'producto', 'cantidad', 'precio', 'total', 'fecha', 'proveedor', 'acciones'];
   form!: FormGroup;
   public paginador!: Paginador;
   constructor(
@@ -86,7 +85,10 @@ export class IngresosComponent implements OnInit {
       if (o) {
       let data:any={
         productoId:o.data.producto,
+        proveedorId: o.data.proveedor,
+        comprobante: o.data.comprobante,
         cantidad:o.data.cantidad,
+        precio: o.data.precio,
       }
       this.alertService.loadingDialogShow('Registrando Ingreso...');
       this.ingresosservice.save(data).subscribe(
@@ -97,7 +99,7 @@ export class IngresosComponent implements OnInit {
         },
         (error) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Ingreso Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.warningDialog("Ocurrió un error inesperado.")
           this.limpiar();
         }
       );
@@ -111,6 +113,7 @@ limpiar() {
 }
 
 update(ingreso: any) {
+  console.log(ingreso)
   const dialogRef = this.dialog.open(DialogIngresosComponent, {
     width: '400px',
     data: {
@@ -128,7 +131,10 @@ update(ingreso: any) {
         estado = 0;
       }
       ingreso.productoId = o.data.producto;
+      ingreso.proveedorId = o.data.proveedor;
+      ingreso.comprobante = o.data.comprobante;
       ingreso.cantidad = o.data.cantidad;
+      ingreso.precio = o.data.precio;
       ingreso.fecha=null;
       console.log(ingreso)
       this.alertService.loadingDialogShow('Actualizando Ingreso...');
@@ -140,7 +146,7 @@ update(ingreso: any) {
         },
         (error) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Ingreso Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.warningDialog("Ocurrió un error inesperado.")
           this.limpiar();
         }
       );

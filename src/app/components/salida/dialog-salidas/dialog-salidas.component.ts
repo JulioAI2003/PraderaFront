@@ -3,10 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CategoriaInterface } from 'src/app/interfaces/categoria-interface';
 import { DigitValidator } from 'src/app/others/digitValidator';
-import { IngresosService } from 'src/app/services/ingresos.service';
 import { SalidaService } from 'src/app/services/salida.service';
-import { DialogIngresosComponent } from '../../ingresos/dialog-ingresos/dialog-ingresos.component';
-
+import { TrabajadorInterface } from 'src/app/interfaces/trabajador-interface';
 @Component({
   selector: 'app-dialog-salidas',
   templateUrl: './dialog-salidas.component.html',
@@ -33,17 +31,22 @@ export class DialogSalidasComponent implements OnInit {
     this.init();
     this.showBtnEdit();
     this.getProductos();
+    this.getTrabajadores();
   }
 
   init() {
     console.log(this.data)
     this.salidaform = this.formBuilder.group({
       producto: [
-        this.data?.ingreso?.productoId,
+        this.data?.salida?.productoId,
+        Validators.required,
+      ],
+      trabajador: [
+        this.data?.salida?.trabajadorId,
         Validators.required,
       ],
       cantidad: [
-        this.data?.ingreso?.cantidad,
+        this.data?.salida?.cantidad,
         Validators.required,
       ], 
     
@@ -74,6 +77,19 @@ export class DialogSalidasComponent implements OnInit {
     this.salidaservice.getProductos().subscribe(
       (res: any) => {
         this.productos = res
+      },
+      error => {
+        alert('Error')
+      }
+    )
+  }
+
+  trabajadores: TrabajadorInterface[] = [];
+  getTrabajadores() {
+    this.salidaservice.getTrabajadores().subscribe(
+      (res: any) => {
+        this.trabajadores = res
+        console.log(res)
       },
       error => {
         alert('Error')

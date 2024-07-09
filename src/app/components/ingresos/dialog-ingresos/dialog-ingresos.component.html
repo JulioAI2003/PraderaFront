@@ -3,7 +3,7 @@
     <form #form="ngForm" [formGroup]="ingresosform">
         <div fxLayout="Column" fxFlex="100%">
             <mat-form-field appearance="fill" fxFlex="100%" >
-                <mat-label>Nombre</mat-label>
+                <mat-label>Producto</mat-label>
                 <mat-select placeholder="" formControlName="producto">
                     <mat-option  [value]="-1">--Ninguno--</mat-option>
                       <mat-option  *ngFor="let prod of productos" [value]="prod.id">
@@ -11,9 +11,26 @@
                       </mat-option>
                   </mat-select>
             </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex="100%" >
+                <mat-label>Proveedor</mat-label>
+                <mat-select placeholder="" formControlName="proveedor">
+                    <mat-option  [value]="-1">--Ninguno--</mat-option>
+                      <mat-option  *ngFor="let prov of proveedores" [value]="prov.id">
+                          {{prov?.nombre}}
+                      </mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="100%">
+                <mat-label>Comprobante</mat-label>                           
+                <input matInput formControlName="comprobante">       
+            </mat-form-field>
             <mat-form-field fxFlex="100%">
                 <mat-label >Cantidad</mat-label>                           
-                <input matInput  formControlName="cantidad">       
+                <input matInput formControlName="cantidad">       
+            </mat-form-field>
+            <mat-form-field fxFlex="100%">
+                <mat-label>Precio</mat-label>                           
+                <input matInput formControlName="precio">       
             </mat-form-field>
         </div>
     </form>
