@@ -4,7 +4,7 @@
         <div fxLayout="Column" fxFlex="100%">
             <mat-form-field fxFlex="100%">
                 <mat-label >Nombre</mat-label>                           
-                <input matInput  formControlName="nombre">       
+                <input (keypress)="validateOnlyLetter($event)" (paste)="onPasteLetter($event)" matInput  formControlName="nombre">       
             </mat-form-field>
         </div>
     </form>

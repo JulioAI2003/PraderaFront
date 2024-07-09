@@ -20,7 +20,7 @@ export class DialogCategoriaComponent implements OnInit {
   ) {}
 
   mensaje: any;
-  showEdit: Boolean = this.data.showEdit;
+  showEdit: Boolean = this.data.showEdit;ñ
 
   ngOnInit(): void {
     this.init();
@@ -54,6 +54,26 @@ export class DialogCategoriaComponent implements OnInit {
     } else {
       this.categoriaform.disable();
     }
+  }
+
+  validateOnlyLetter(event: any) {
+    return this.digitValidator.validateOnlyLetter(event.key);
+  }
+
+  validateOnlyNumber(event: any) {
+    return this.digitValidator.validateNumeric(event.key);
+  }
+
+  onPasteLetter(event: ClipboardEvent) {
+    var valor = event.clipboardData?.getData('text');
+    var respt = this.digitValidator.validateOnlyLetter(valor);
+    if (respt === false) event.preventDefault()
+  }
+
+  onPasteNumber(event: ClipboardEvent) {
+    var valor = event.clipboardData?.getData('text');
+    var respt = this.digitValidator.validateNumeric(valor);
+    if (respt === false) event.preventDefault()
   }
 
 }
