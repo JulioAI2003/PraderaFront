@@ -5,29 +5,29 @@
     <div role="tabpanel" class="mb-1">
         <!-- List group -->
         <div class="list-group px-3" id="myList" role="tablist">
-            <a class="actv list-group-item list-group-item-action active slcn" data-bs-toggle="list"
-                (click)="categoria()" role="tab"><i class="fa-solid fa-list "></i>
+            <a  id="link" class="actv list-group-item list-group-item-action  slcn" data-bs-toggle="list"
+                (click)="categoria()"  [ngClass]="{'active': activeLink === 'categoria'}" role="tab"><i class="fa-solid fa-list"></i>
                 <button type="button" class="btn">Categorias</button><i class="fa-solid fa-caret-right"></i></a>
             <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="producto()"
-                role="tab"><i class="fa-solid fa-cube"></i>
+            [ngClass]="{'active': activeLink === 'producto'}" role="tab"><i class="fa-solid fa-cube"></i>
                 <button type="button" class="btn">Productos</button><i class="fa-solid fa-caret-right"></i></a>
             <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="proveedor()"
-                role="tab"><i class="fa-solid fa-handshake"></i>
+            [ngClass]="{'active': activeLink === 'proveedor'}" role="tab"><i class="fa-solid fa-handshake"></i>
                 <button type="button" class="btn">Proveedores</button><i class="fa-solid fa-caret-right"></i></a>
             <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="trabajador()"
-                role="tab"><i class="fa-solid fa-users"></i>
+            [ngClass]="{'active': activeLink === 'trabajador'}" role="tab"><i class="fa-solid fa-users"></i>
                 <button type="button" class="btn">Trabajadores</button><i class="fa-solid fa-caret-right"></i></a>
             <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="ingresos()"
-                role="tab"><i class="fa-solid fa-arrow-right-to-bracket inv"></i>
+            [ngClass]="{'active': activeLink === 'ingresos'}"  role="tab"><i class="fa-solid fa-arrow-right-to-bracket inv"></i>
                 <button type="button" class="btn">Ingresos</button><i class="fa-solid fa-caret-right"></i></a>
             <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="salidas()"
-                role="tab"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+            [ngClass]="{'active': activeLink === 'salidas'}"  role="tab"><i class="fa-solid fa-arrow-right-to-bracket"></i>
                 <button type="button" class="btn">Salidas</button><i class="fa-solid fa-caret-right"></i></a>
             <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="kardex()"
-                role="tab"><i class="fa-solid fa-clipboard-list"></i>
+            [ngClass]="{'active': activeLink === 'kardex'}"  role="tab"><i class="fa-solid fa-clipboard-list"></i>
                 <button type="button" class="btn">Kardex</button><i class="fa-solid fa-caret-right"></i></a>
             <a *ngIf="rol=='ROLE_ADMIN'" class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="usuarios()"
-                role="tab"><i class="fa-solid fa-user-circle"></i>
+            [ngClass]="{'active': activeLink === 'usuarios'}" role="tab"><i class="fa-solid fa-user-circle"></i>
                 <button type="button" class="btn">Usuarios</button><i class="fa-solid fa-caret-right"></i></a>
         </div>
     </div>

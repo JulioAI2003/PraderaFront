@@ -10,6 +10,9 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class MenuComponent implements OnInit {
 
+
+  activeLink: string | null = null;
+
   rol = localStorage.getItem("rol");
 
   constructor(
@@ -18,6 +21,13 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.activeLink = localStorage.getItem('activeLink');
+  }
+
+  setActive(link: string) {
+    this.activeLink = link;
+    // Almacenar el ítem activo en localStorage
+    localStorage.setItem('activeLink', link);   
   }
   
   exit() {
@@ -27,30 +37,38 @@ export class MenuComponent implements OnInit {
   
   categoria() {
     this.router.navigate(['/categoria',{}])
+    this.setActive('categoria');
   }
 
   producto() {
     this.router.navigate(['/producto',{}])
+    this.setActive('producto');
   }
 
   proveedor() {
     this.router.navigate(['/proveedor',{}])
+    this.setActive('proveedor');
   }
 
   trabajador() {
     this.router.navigate(['/trabajador',{}])
+    this.setActive('trabajador');
   }
 
   ingresos() {
     this.router.navigate(['/ingresos',{}])
+    this.setActive('ingresos');
   }
   salidas() {
     this.router.navigate(['/salidas',{}])
+    this.setActive('salidas');
   }
   kardex() {
     this.router.navigate(['/kardex',{}])
+    this.setActive('kardex');
   }
   usuarios() {
     this.router.navigate(['/usuarios',{}])
+    this.setActive('usuarios');
   }
 }
