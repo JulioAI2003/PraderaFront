@@ -31,6 +31,7 @@ import { SalidaComponent } from './components/salida/salida.component';
 import { DialogSalidasComponent } from './components/salida/dialog-salidas/dialog-salidas.component';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorInterceptor } from './interceptor/jwt-interceptor.interceptor';
+import { KardexComponent } from './components/kardex/kardex.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { JwtInterceptorInterceptor } from './interceptor/jwt-interceptor.interce
     DialogIngresosComponent,
     SalidaComponent,
     DialogSalidasComponent,
+    KardexComponent,
   ],
   imports: [
     FormsModule,

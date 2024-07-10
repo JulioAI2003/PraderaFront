@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { SalidaComponent } from './components/salida/salida.component';
 import { FirstGuardGuard } from './guards/first-guard.guard';
+import { KardexComponent } from './components/kardex/kardex.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -34,6 +35,11 @@ const routes: Routes = [
     component: SalidaComponent,
     canActivate:[FirstGuardGuard]
   },
+  {
+    path: 'kardex',
+    component: KardexComponent,
+    canActivate:[FirstGuardGuard]
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

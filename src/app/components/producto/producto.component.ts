@@ -88,6 +88,7 @@ export class ProductoComponent implements OnInit {
         presentacion:o.data.presentacion,
         categoriaId:o.data.categoria
       }
+      console.log(data)
       this.alertService.loadingDialogShow('Registrando Producto...');
       this.productoservice.save(data).subscribe(
         (response) => {
