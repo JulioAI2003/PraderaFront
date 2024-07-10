@@ -69,5 +69,6 @@ export class MenuComponent implements OnInit {
   }
   usuarios() {
     this.router.navigate(['/usuarios',{}])
+    this.setActive('usuarios');
   }
 }
