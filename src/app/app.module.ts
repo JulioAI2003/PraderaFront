@@ -31,6 +31,9 @@ import { SalidaComponent } from './components/salida/salida.component';
 import { DialogSalidasComponent } from './components/salida/dialog-salidas/dialog-salidas.component';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorInterceptor } from './interceptor/jwt-interceptor.interceptor';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { DialogUsuariosComponent } from './components/usuarios/dialog-usuarios/dialog-usuarios.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,8 @@ import { JwtInterceptorInterceptor } from './interceptor/jwt-interceptor.interce
     DialogIngresosComponent,
     SalidaComponent,
     DialogSalidasComponent,
+    UsuariosComponent,
+    DialogUsuariosComponent,
   ],
   imports: [
     FormsModule,
@@ -66,7 +71,8 @@ import { JwtInterceptorInterceptor } from './interceptor/jwt-interceptor.interce
     MatSnackBarModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [
     CookieService,

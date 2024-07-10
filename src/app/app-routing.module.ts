@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { SalidaComponent } from './components/salida/salida.component';
 import { FirstGuardGuard } from './guards/first-guard.guard';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -32,6 +33,11 @@ const routes: Routes = [
   {
     path: 'salidas',
     component: SalidaComponent,
+    canActivate:[FirstGuardGuard]
+  },
+  {
+    path: 'usuarios',
+    component: UsuariosComponent,
     canActivate:[FirstGuardGuard]
   },
 ];
