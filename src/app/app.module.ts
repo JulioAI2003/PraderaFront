@@ -31,6 +31,9 @@ import { SalidaComponent } from './components/salida/salida.component';
 import { DialogSalidasComponent } from './components/salida/dialog-salidas/dialog-salidas.component';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorInterceptor } from './interceptor/jwt-interceptor.interceptor';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { DialogUsuariosComponent } from './components/usuarios/dialog-usuarios/dialog-usuarios.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { KardexComponent } from './components/kardex/kardex.component';
 import { ProveedoresComponent } from './components/proveedores/proveedores.component';
 import { DialogProveedoresComponent } from './components/proveedores/dialog-proveedores/dialog-proveedores.component';
@@ -55,6 +58,8 @@ import { DialogTrabajadoresComponent } from './components/trabajadores/dialog-tr
     DialogIngresosComponent,
     SalidaComponent,
     DialogSalidasComponent,
+    UsuariosComponent,
+    DialogUsuariosComponent,
     KardexComponent,
     ProveedoresComponent,
     DialogProveedoresComponent,
@@ -76,7 +81,8 @@ import { DialogTrabajadoresComponent } from './components/trabajadores/dialog-tr
     MatSnackBarModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [
     CookieService,

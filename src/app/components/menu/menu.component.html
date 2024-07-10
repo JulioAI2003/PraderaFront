@@ -26,7 +26,7 @@
             <a class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="kardex()"
                 role="tab"><i class="fa-solid fa-clipboard-list"></i>
                 <button type="button" class="btn">Kardex</button><i class="fa-solid fa-caret-right"></i></a>
-            <a *ngIf="rol=='ROLE_ADMIN'" class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list"
+            <a *ngIf="rol=='ROLE_ADMIN'" class="actv list-group-item list-group-item-action slcn" data-bs-toggle="list" (click)="usuarios()"
                 role="tab"><i class="fa-solid fa-user-circle"></i>
                 <button type="button" class="btn">Usuarios</button><i class="fa-solid fa-caret-right"></i></a>
         </div>

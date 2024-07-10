@@ -8,6 +8,7 @@ import { ProveedoresComponent } from './components/proveedores/proveedores.compo
 import { SalidaComponent } from './components/salida/salida.component';
 import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
 import { FirstGuardGuard } from './guards/first-guard.guard';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { KardexComponent } from './components/kardex/kardex.component';
 
 const routes: Routes = [
@@ -38,6 +39,10 @@ const routes: Routes = [
     canActivate:[FirstGuardGuard]
   },
   {
+    path: 'usuarios',
+    component: UsuariosComponent,
+    canActivate:[FirstGuardGuard]
+  },{
     path: 'proveedor',
     component: ProveedoresComponent,
     canActivate:[FirstGuardGuard]
