@@ -4,7 +4,9 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
 import { IngresosComponent } from './components/ingresos/ingresos.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { ProveedoresComponent } from './components/proveedores/proveedores.component';
 import { SalidaComponent } from './components/salida/salida.component';
+import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
 import { FirstGuardGuard } from './guards/first-guard.guard';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
@@ -39,6 +41,13 @@ const routes: Routes = [
     path: 'usuarios',
     component: UsuariosComponent,
     canActivate:[FirstGuardGuard]
+  },{
+    path: 'proveedor',
+    component: ProveedoresComponent,
+  },
+  {
+    path: 'trabajador',
+    component: TrabajadoresComponent,
   },
 ];
 @NgModule({

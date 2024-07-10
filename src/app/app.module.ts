@@ -34,6 +34,10 @@ import { JwtInterceptorInterceptor } from './interceptor/jwt-interceptor.interce
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { DialogUsuariosComponent } from './components/usuarios/dialog-usuarios/dialog-usuarios.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ProveedoresComponent } from './components/proveedores/proveedores.component';
+import { DialogProveedoresComponent } from './components/proveedores/dialog-proveedores/dialog-proveedores.component';
+import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
+import { DialogTrabajadoresComponent } from './components/trabajadores/dialog-trabajadores/dialog-trabajadores.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +59,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     DialogSalidasComponent,
     UsuariosComponent,
     DialogUsuariosComponent,
+    ProveedoresComponent,
+    DialogProveedoresComponent,
+    TrabajadoresComponent,
+    DialogTrabajadoresComponent,
   ],
   imports: [
     FormsModule,
