@@ -67,4 +67,7 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/kardex',{}])
     this.setActive('kardex');
   }
+  usuarios() {
+    this.router.navigate(['/usuarios',{}])
+  }
 }
