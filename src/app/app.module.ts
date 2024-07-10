@@ -32,6 +32,10 @@ import { DialogSalidasComponent } from './components/salida/dialog-salidas/dialo
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorInterceptor } from './interceptor/jwt-interceptor.interceptor';
 import { KardexComponent } from './components/kardex/kardex.component';
+import { ProveedoresComponent } from './components/proveedores/proveedores.component';
+import { DialogProveedoresComponent } from './components/proveedores/dialog-proveedores/dialog-proveedores.component';
+import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
+import { DialogTrabajadoresComponent } from './components/trabajadores/dialog-trabajadores/dialog-trabajadores.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +56,10 @@ import { KardexComponent } from './components/kardex/kardex.component';
     SalidaComponent,
     DialogSalidasComponent,
     KardexComponent,
+    ProveedoresComponent,
+    DialogProveedoresComponent,
+    TrabajadoresComponent,
+    DialogTrabajadoresComponent,
   ],
   imports: [
     FormsModule,
