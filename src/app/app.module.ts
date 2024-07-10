@@ -31,6 +31,10 @@ import { SalidaComponent } from './components/salida/salida.component';
 import { DialogSalidasComponent } from './components/salida/dialog-salidas/dialog-salidas.component';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptorInterceptor } from './interceptor/jwt-interceptor.interceptor';
+import { ProveedoresComponent } from './components/proveedores/proveedores.component';
+import { DialogProveedoresComponent } from './components/proveedores/dialog-proveedores/dialog-proveedores.component';
+import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
+import { DialogTrabajadoresComponent } from './components/trabajadores/dialog-trabajadores/dialog-trabajadores.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import { JwtInterceptorInterceptor } from './interceptor/jwt-interceptor.interce
     DialogIngresosComponent,
     SalidaComponent,
     DialogSalidasComponent,
+    ProveedoresComponent,
+    DialogProveedoresComponent,
+    TrabajadoresComponent,
+    DialogTrabajadoresComponent,
   ],
   imports: [
     FormsModule,
