@@ -26,11 +26,11 @@
             </mat-form-field>
             <mat-form-field fxFlex="100%">
                 <mat-label >Cantidad</mat-label>                           
-                <input matInput formControlName="cantidad">       
+                <input matInput formControlName="cantidad" (keypress)="validateOnlyNumber($event)" (paste)="onPasteNumber($event)">       
             </mat-form-field>
             <mat-form-field fxFlex="100%">
                 <mat-label>Precio</mat-label>                           
-                <input matInput formControlName="precio">       
+                <input matInput formControlName="precio" (keypress)="validateDecimal($event)">       
             </mat-form-field>
         </div>
     </form>

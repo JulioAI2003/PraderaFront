@@ -43,7 +43,7 @@ export class DialogTrabajadoresComponent implements OnInit {
         Validators.required,
       ],
       dni: [
-        this.data?.trabajador?.dniS,
+        this.data?.trabajador?.dni,
         Validators.required,
       ],
     

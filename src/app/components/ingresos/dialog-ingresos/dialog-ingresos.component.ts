@@ -100,4 +100,18 @@ export class DialogIngresosComponent implements OnInit {
     )
   }
 
+  validateOnlyNumber(event: any) {
+    return this.digitValidator.validateNumeric(event.key);
+  }
+
+  validateDecimal(event: any){
+    return this.digitValidator.validateDecimal(event.key);
+  }
+
+  onPasteNumber(event: ClipboardEvent) {
+    var valor = event.clipboardData?.getData('text');
+    var respt = this.digitValidator.validateNumeric(valor);
+    if (respt === false) event.preventDefault()
+  }
+
 }
