@@ -33,6 +33,7 @@ export class MenuComponent implements OnInit {
   exit() {
     this.loginService.logout();
     this.router.navigate(['/login',{}])
+    this.setActive('categoria');
   }
   
   categoria() {
