@@ -90,11 +90,11 @@ export class TrabajadoresComponent implements OnInit {
         apellidom:o.data.apellidom,
         dni:o.data.dni,
       }
-      this.alertService.loadingDialogShow('Registrando Trabajador...');
+      this.alertService.loadingDialogShow('Registrando trabajador...');
       this.trabajadorservice.save(data).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Trabajador Registrado correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Trabajador registrado correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
@@ -133,7 +133,7 @@ update(trabajador: any) {
       trabajador.apellidop = o.data.apellidop;
       trabajador.apellidom = o.data.apellidom;
       trabajador.dni = o.data.dni;
-      this.alertService.loadingDialogShow('Actualizando Trabajador...');
+      this.alertService.loadingDialogShow('Actualizando trabajador...');
       this.trabajadorservice.save(trabajador).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
@@ -152,7 +152,7 @@ update(trabajador: any) {
 
 
 async delete(index: number) {
-  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar este Trabajador?');
+  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar este trabajador?');
   if (answer) {
     this.trabajadorservice.delete(index).subscribe(
       response => {

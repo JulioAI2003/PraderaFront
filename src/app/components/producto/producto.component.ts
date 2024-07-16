@@ -89,16 +89,16 @@ export class ProductoComponent implements OnInit {
         categoriaId:o.data.categoria
       }
       console.log(data)
-      this.alertService.loadingDialogShow('Registrando Producto...');
+      this.alertService.loadingDialogShow('Registrando producto...');
       this.productoservice.save(data).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Producto Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Producto registrado correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Producto Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.warningDialog("Ocurrió un error inesperado.")
           this.limpiar();
         }
       );
@@ -131,16 +131,16 @@ update(producto: any) {
       producto.nombre = o.data.nombre;
       producto.presentacion = o.data.presentacion,
       producto.categoriaId = o.data.categoria
-      this.alertService.loadingDialogShow('Actualizando Producto...');
+      this.alertService.loadingDialogShow('Actualizando producto...');
       this.productoservice.save(producto).subscribe(
         (response) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Producto Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.openSuccessDialog("Información","Producto actualizado correctamente.","Aceptar",(boton:boolean)=>{})
           this.limpiar();
         },
         (error) => {
           this.alertService.loadingDialogClose();
-          this.alertService.openSuccessDialog("Información","Categoria Registrada correctamente.","Aceptar",(boton:boolean)=>{})
+          this.alertService.warningDialog("Ocurrió un error inesperado.")
           this.limpiar();
         }
       );
@@ -150,7 +150,7 @@ update(producto: any) {
 
 
 async delete(index: number) {
-  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar esta Producto?');
+  let answer = await this.alertService.confirmDialog('¿Seguro que desea eliminar este producto?');
   if (answer) {
     this.productoservice.delete(index).subscribe(
       response => {
